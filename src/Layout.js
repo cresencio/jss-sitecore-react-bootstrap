@@ -73,8 +73,8 @@ const Layout = ({ route }) => (
     <Navigation />
 
     {/* root placeholder for the app, which we add components to using route data */}
-    <Container id="main-content" fluid as="main">
-      <Row>
+    <Container id="main-content" fluid as="main" className="p-0">
+      <Row noGutters>
          <Col>
             <Placeholder name="jss-main" rendering={route} />
          </Col>
