@@ -1,6 +1,6 @@
 import React from 'react';
 import { Placeholder, getChildPlaceholder, getFieldValue } from '@sitecore-jss/sitecore-jss-react';
-
+import { Row, Col, Card, ListGroup } from 'react-bootstrap';
 /**
  * The main layout (columns) of the styleguide.
  * Navigation is automatically generated based on the components added to the layout,
@@ -22,32 +22,36 @@ const StyleguideLayout = (props) => {
         })),
     }))
     .map((section) => (
-      <nav key={section.heading} className="nav flex-column pt-2">
-        <a href={`#${section.id}`} className="nav-item font-weight-bold">
-          {section.heading}
-        </a>
+      <Card key={section.heading} className="mb-5">
+        <Card.Header>
+          <a href={`#${section.id}`} className="nav-item font-weight-bold">
+            {section.heading}
+          </a>  
+        </Card.Header>
         {section.children && (
-          <nav className="nav flex-column">
+          <ListGroup as="ul" variant="flush">
             {section.children.map(
               (child) =>
                 child.heading && (
-                  <a key={child.id} href={`#${child.id}`}>
-                    {child.heading}
-                  </a>
+                  <ListGroup.Item as="li">
+                    <a key={child.id} href={`#${child.id}`}>
+                      {child.heading}
+                    </a>
+                  </ListGroup.Item>
                 )
             )}
-          </nav>
+          </ListGroup>
         )}
-      </nav>
+      </Card>
     ));
 
   return (
-    <div className="row">
-      <div className="col-sm-8 col-lg-10">
+    <Row>
+      <Col as="aside" lg={4}>{sections}</Col>
+      <Col as="article" lg={8}>
         <Placeholder name="jss-styleguide-layout" rendering={props.rendering} />
-      </div>
-      <div className="col-sm-4 col-lg-2 order-sm-first pt-2">{sections}</div>
-    </div>
+      </Col>
+    </Row>
   );
 };
 
