@@ -20,6 +20,12 @@ fields:
 # root placeholder names are defined in the package.json config section (required for Sitecore deployment)
 placeholders:
   jss-main:
+    - componentName: SectionHero
+      placeholders: 
+        section-hero-content:
+          - componentName: ContentBlock
+            fields:
+              heading: Welcome to Sitecore JSS with React-Bootstrap
     - componentName: ContentBlock
       fields:
         heading: Welcome to Sitecore JSS
