@@ -3,7 +3,7 @@ import { Placeholder, VisitorIdentification } from '@sitecore-jss/sitecore-jss-r
 import Helmet from 'react-helmet';
 import SiteHeader from './components/SiteHeader';
 
-// Using bootstrap is completely optional. It's used here to provide a clean layout for samples,
+// Using bootstrap is required. It's used here to provide a clean layout for samples,
 // without needing extra CSS in the sample app. Remove it in package.json as well if it's removed here.
 
 import './styles/styles.scss';
