@@ -23,20 +23,20 @@ const StyleguideLayout = (props) => {
     }))
     .map((section) => (
       <Card key={section.heading} className="mb-5">
-        <Card.Header>
-          <a href={`#${section.id}`} className="nav-item font-weight-bold">
+        <Card.Header className="bg-dark">
+          <a href={`#${section.id}`} className="nav-item font-weight-bold text-white">
             {section.heading}
           </a>  
         </Card.Header>
         {section.children && (
-          <ListGroup as="ul" variant="flush">
+          <ListGroup as="ul" variant="flush" className="border border-dark">
             {section.children.map(
               (child) =>
                 child.heading && (
-                  <ListGroup.Item as="li">
-                    <a key={child.id} href={`#${child.id}`}>
+                  <ListGroup.Item as="a" key={child.id} href={`#${child.id}`}>
+                    <span className="text-dark" >
                       {child.heading}
-                    </a>
+                    </span>
                   </ListGroup.Item>
                 )
             )}
